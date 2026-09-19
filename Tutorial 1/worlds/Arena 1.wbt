@@ -1,0 +1,94 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+IMPORTABLE EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/OsbWood.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Copper.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/DamascusSteel.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.0772046767024851 0.031062841860615358 -0.9965312527717367 2.9169596222850496
+  position 0.44285120971154457 0.3672000632124195 0.17247651361355743
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 6
+  floorTileSize 0.35 0.35
+}
+Robot {
+  translation 0 0.24 0.11
+  children [
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0 0.02 0
+      }
+      device [
+        PositionSensor {
+          name "sensor_1"
+        }
+        RotationalMotor {
+          name "motor_1"
+        }
+      ]
+      endPoint Solid {
+        translation -6.19957090220542e-08 0.020000000000000018 0.06998053705873788
+        rotation 0 -1 0 6.283185307179586
+        children [
+          Shape {
+            appearance DamascusSteel {
+            }
+            geometry DEF el_tubo Cylinder {
+              height 0.14
+              radius 0.0025
+            }
+          }
+        ]
+        name "solid(1)"
+        physics Physics {
+          density 1240
+          mass 10
+          centerOfMass [
+            0 0 0
+          ]
+        }
+      }
+    }
+    Solid {
+      children [
+        Shape {
+          appearance Copper {
+          }
+          geometry DEF forma_motor Box {
+            size 0.01 0.035 0.0211
+          }
+        }
+      ]
+      boundingObject USE forma_motor
+    }
+  ]
+  name "gemelo"
+  boundingObject DEF forma_motor Box {
+    size 0.01 0.035 0.0211
+  }
+  controller "controlador_pendulo"
+}
+Solid {
+  translation 0 0.2 0.05
+  children [
+    Shape {
+      appearance OsbWood {
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+  ]
+}
