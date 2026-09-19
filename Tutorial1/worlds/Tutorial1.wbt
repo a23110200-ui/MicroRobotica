@@ -1,0 +1,46 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.23817906125157626 0.2402741384618233 0.9410308566501666 1.6228055999126059
+  position 0.001901901678218687 -1.145525351931621 0.6592777282895492
+}
+Background {
+  skyColor [
+    0.4 0.7 1
+  ]
+}
+RectangleArena {
+  floorTileSize 0.25 0.25
+  wallHeight 0.05
+}
+WoodenBox {
+  translation -0.21695 -0.113439 0.06
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.144386 -0.289363 0.05
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+}
+WoodenBox {
+  translation 0.222984 0.198516 0.05
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+}
+E-puck {
+  translation -0.0394178 0.18492 0
+  controller "my_controller"
+}
+E-puck {
+  translation -0.132218 -0.310867 0
+  rotation 0 0 1 -2.6179953071795863
+  name "e-puck(1)"
+  controller "my_controller"
+}
